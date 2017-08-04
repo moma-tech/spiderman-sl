@@ -36,8 +36,18 @@ public class CustomBodyResultHandler implements ResultHandler {
         String html = author.text() + lineSeparator + from.text() + lineSeparator + time.text() + lineSeparator + span.html();
         Element title = doc.getElementById("ContentPlaceHolder1_DIVTITLE");
         String fileName = c.get()+"-"+title.text();
+        if(html.contains("<img")) {
+        	fileName += "-pic";
+        }
+        if(html.contains("<a href")) {
+        	fileName += "-link";
+        }
+        if(html.contains("/UpLoadFiles")) {
+        	html= html.replaceAll("/UpLoadFiles", "http://rcpu.cwun.org/UpLoadFiles");
+        }
         final Context ctx = context.get();
-        final String path = ctx.getParams().getString("worker.result.store", "store/result") + "/" + fileName;
+        final String subName= task.getSeed().getName();
+        final String path = ctx.getParams().getString("worker.result.store", "store/result") + "/" +subName.substring(subName.length()-4)+"/"+fileName;
         File file = new File(path);
         try {
             K.writeFile(file, html);

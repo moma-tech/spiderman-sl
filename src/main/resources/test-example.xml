@@ -17,11 +17,12 @@
   <script bindings="net.kernal.spiderman.Bootstrap$Bindings"><!-- 使用脚本动态创建方式 -->
     <![CDATA[
     var K = Java.type("net.kernal.spiderman.kit.K");
-    	var kws = K.readLine("json_result_内容页_links.json");
+    var sbx = "flfg";
+    	var kws = K.readLine("json_result_内容页_links-"+sbx+".json");
     	for (var i = 0; i < kws.length; i++) {
     		  var kw = kws[i].trim();
     	    var ekw = K.urlEncode(kw);
-	        $seeds.add(kw+"-flfg", "http://rcpu.cwun.org/" + kw);
+	        $seeds.add(kw+"-"+sbx, "http://rcpu.cwun.org/" + kw);
 	    }
 	]]>
   </script>

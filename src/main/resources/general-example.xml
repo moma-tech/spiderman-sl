@@ -16,7 +16,7 @@
   <!-- <seed url="http://localhost:1989/items" /> --><!-- 写死种子入口的方式 -->
   <script bindings="net.kernal.spiderman.Bootstrap$Bindings"><!-- 使用脚本动态创建方式 -->
     <![CDATA[
-	        $seeds.add("flfg", "http://rcpu.cwun.org/NewsLaw.aspx?t=4&d=3");
+	        $seeds.add("xyxx", "http://rcpu.cwun.org/NewsLaw.aspx?t=10&d=3");
 	]]>
   </script>
   <extract><!-- 页面抽取规则 -->

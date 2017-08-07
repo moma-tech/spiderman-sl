@@ -33,7 +33,7 @@ public class CustomBodyResultHandler implements ResultHandler {
         Element author = doc.getElementById("ContentPlaceHolder1_lbAuthor");
         Element from = doc.getElementById("ContentPlaceHolder1_ViewFrom");
         Element time = doc.getElementById("ContentPlaceHolder1_Time");
-        String html = author.text() + lineSeparator + from.text() + lineSeparator + time.text() + lineSeparator + span.html();
+        String html = author.text()+"<br>" + lineSeparator + from.text() +"<br>"+ lineSeparator + time.text() +"<br>"+ lineSeparator + span.html();
         Element title = doc.getElementById("ContentPlaceHolder1_DIVTITLE");
         String fileName = c.get()+"-"+title.text();
         if(html.contains("<img")) {

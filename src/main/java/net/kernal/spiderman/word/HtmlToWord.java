@@ -26,8 +26,8 @@ public class HtmlToWord {
 	}
 
 	public void htmlToWord2() throws Exception {
-		List<String> fNames = this.getFileNames();
-		String cat = "flfg";
+		String cat = "xyxx";
+		List<String> fNames = this.getFileNames(cat);
 		for (String a : fNames) {
 			String fileName = a;
 
@@ -36,16 +36,16 @@ public class HtmlToWord {
 			String body = this.getContent(bodyIs);
 			// String css = this.getContent(cssIs);
 			// 拼一个标准的HTML格式文档
-			String content = "<html><head></head><body>" + body + "</body></html>";
+			String content = "<html><head><meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=UTF-8\\\" /></head><body>" + body + "</body></html>";
 			InputStream is = new ByteArrayInputStream(content.getBytes("GBK"));
 			OutputStream os = new FileOutputStream("store\\word\\" +cat+"\\" + fileName + ".doc");
 			this.inputStreamToWord(is, os);
 		}
 	}
 
-	public List<String> getFileNames() {
+	public List<String> getFileNames(String cat) {
 		List<String> fNames = new ArrayList<String>();
-		String path = "store\\result\\";
+		String path = "store\\result\\"+cat;
 		File f = new File(path);
 		if (f.isDirectory()) {
 			File[] fs = f.listFiles(new FileFilter() {
